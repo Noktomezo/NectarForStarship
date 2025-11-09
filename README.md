@@ -1,4 +1,4 @@
-# 🌠🙀 Starship Feline Preset
+# 🌠🙀 Feline For Starship
 
 A clean, vivid prompt preset for Starship. Built with high-contrast palettes inspired by Catppuccin, but more compact and vibrant. Provides three variants: Nerd Font icons, emojis, or plain text.
 
