@@ -2,7 +2,7 @@
   <h3>🌠🙀 Feline For <a href="https://starship.rs/">Starship</a></h1>
 </div>
 
-A clean, vivid prompt preset for Starship. Built with high-contrast palettes inspired by Catppuccin, but more compact and vibrant. Provides three variants: Nerd Font icons, emojis, or plain text.
+A clean, vivid prompt preset for Starship. Built with high-contrast palettes inspired by [Catppuccin](https://github.com/catppuccin/starship), but more compact and vibrant. Provides three variants: Nerd Font icons, emojis, or plain text.
 
 > [!IMPORTANT]
 > Requires: Starship 1.0+
