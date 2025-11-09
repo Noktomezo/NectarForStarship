@@ -10,12 +10,12 @@
 
 Windows:
 ```powershell
-iwr -useb "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main/scripts/setup.ps1" | iex
+iwr -useb "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/scripts/setup.ps1" | iex
 ```
 
 Linux and macOS:
 ```bash
-bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main/scripts/setup.sh")
+bash <(curl -fsSL "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/scripts/setup.sh")
 ```
 
 2. Select a prompted variant:

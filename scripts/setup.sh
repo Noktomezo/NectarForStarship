@@ -2,7 +2,7 @@
 
 clear
 
-BASE_URL="https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main"
+BASE_URL="https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main"
 CONFIG_DIR="$HOME/.config"
 
 if command -v starship >/dev/null 2>&1; then
