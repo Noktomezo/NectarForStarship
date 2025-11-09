@@ -60,7 +60,7 @@ while (-not $valid) {
 
 Write-Host "Downloading and installing from $url..." -ForegroundColor Yellow
 try {
-  Invoke-WebRequest -Uri $url -OutFile "$configDir\starship.toml" -UseBasicParsing
+  Invoke-WebRequest -Uri $url -OutFile "$CONFIG_DIR\starship.toml" -UseBasicParsing
   Write-Host "`e[1;32mInstallation complete! (Shell restart may be required)`e[0m"
 }
 catch {
