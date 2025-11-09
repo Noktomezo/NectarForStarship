@@ -14,10 +14,10 @@ A clean, vivid prompt preset for Starship. Built with high-contrast palettes ins
 2. Run the following command in your terminal:
 ```shell
 # For PowerShell
-iwr -useb "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/setup.ps1" | iex
+iwr -useb "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/setup.ps1" | iex
 
 # For Bash
-bash <(curl -fsSL "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/setup.sh")
+bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/setup.sh")
 ```
 2. Run it and select a variant:
    - 1: Default (Nerd Font) — `feline.toml`
