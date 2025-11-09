@@ -2,6 +2,8 @@
 
 clear
 
+BASE_URL="https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/"
+
 if command -v starship >/dev/null 2>&1; then
     echo -e "\033[1;32mStarship is installed. Proceeding with preset installation.\033[0m"
 else
@@ -16,6 +18,10 @@ if [ ! -d "$HOME/.config" ]; then
     echo -e "\033[1;33mCreating directory...\033[0m"
     mkdir -p "$HOME/.config"
 fi
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+THEMES_DIR="$SCRIPT_DIR/../themes"
 
 valid=false
 while [ "$valid" = false ]; do
@@ -36,17 +42,17 @@ while [ "$valid" = false ]; do
     
     case $choice in
         1)
-            config_file="themes/feline.toml"
+            url="$BASE_URL/themes/feline.toml"
             valid=true
             echo -e "\033[1;32mSelected: Standard preset\033[0m"
         ;;
         2)
-            config_file="themes/feline-emoji.toml"
+            url="$BASE_URL/themes/feline-emoji.toml"
             valid=true
             echo -e "\033[1;32mSelected: Emoji preset\033[0m"
         ;;
         3)
-            config_file="themes/feline-plain-text.toml"
+            url="$BASE_URL/themes/feline-plain-text.toml"
             valid=true
             echo -e "\033[1;32mSelected: Plain text preset\033[0m"
         ;;
@@ -57,9 +63,14 @@ while [ "$valid" = false ]; do
     esac
 done
 
-echo -e "\n\033[1;33mCopying $(basename "$config_file") to ~/.config/starship.toml...\033[0m"
-cp "$config_file" "$HOME/.config/starship.toml"
-echo -e "\033[1;32mInstallation complete! (Shell restart may be required)\033[0m"
+{
+    echo -e "\n\033[1;33mDownloading and installing from $url...\033[0m"
+    curl -L "$url" -o "$HOME/.config/starship.toml"
+    echo -e "\033[1;32mInstallation complete! (Shell restart may be required)\033[0m"
+    } || {
+    echo -e "\n\033[1;31mError downloading preset: $($_.Exception.Message)\033[0m"
+    echo -e "\033[1;33mCheck your internet or repo URL.\033[0m"
+}
 
 if ! command -v starship >/dev/null 2>&1; then
     echo -e "\n\033[1;33mReminder: Install Starship to activate the preset!\033[0m"

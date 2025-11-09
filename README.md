@@ -15,9 +15,9 @@ iwr -useb "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/setup.ps1" | 
 bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/setup.sh")
 ```
 2. Run it and select a variant:
-   - 1: Standard (Nerd Font) — `feline.toml`
-   - 2: Emoji — `feline-emoji.toml`
-   - 3: Plain text — `feline-plain-text.toml`
+- 1: Standard (Nerd Font) — `feline.toml`
+- 2: Emoji — `feline-emoji.toml`
+- 3: Plain text — `feline-plain-text.toml`
 
 3. Reload shell (don't needed actually) to see the result.
 

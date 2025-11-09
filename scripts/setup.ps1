@@ -1,5 +1,7 @@
 Clear-Host
 
+$BASE_URL = "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main"
+
 if (Get-Command starship -ErrorAction SilentlyContinue) {
   Write-Host "`e[1;32mStarship is installed. Proceeding with preset installation.`e[0m"
 }
@@ -16,6 +18,9 @@ if (-not (Test-Path $configDir)) {
   Write-Host "`e[1;33mCreating directory...`e[0m`n"
   New-Item -Path $configDir -ItemType Directory -Force | Out-Null
 }
+
+$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$themesPath = Join-Path $scriptPath "..\themes"
 
 $valid = $false
 while (-not $valid) {
@@ -35,17 +40,17 @@ while (-not $valid) {
 
   switch ($choice) {
     "1" {
-      $config_file = "themes\feline.toml";
+      $url = "$BASE_URL/themes/feline.toml"
       $valid = $true
       Write-Host "`e[1;32mSelected: Standard preset`e[0m"
     }
     "2" {
-      $config_file = "themes\feline-emoji.toml";
+      $url = "$BASE_URL/themes/feline-emoji.toml"
       $valid = $true
       Write-Host "`e[1;32mSelected: Emoji preset`e[0m"
     }
     "3" {
-      $config_file = "themes\feline-plain-text.toml";
+      $url = "$BASE_URL/themes/feline-plain-text.toml"
       $valid = $true
       Write-Host "`e[1;32mSelected: Plain text preset`e[0m"
     }
@@ -56,9 +61,15 @@ while (-not $valid) {
   }
 }
 
-Write-Host "`n`e[1;33mCopying $((Get-Item $config_file).Name) to $HOME\.config\starship.toml...`e[0m"
-Copy-Item -Path $config_file -Destination "$HOME\.config\starship.toml" -Force
-Write-Host "`e[1;32mInstallation complete! (Shell restart may be required)`e[0m"
+Write-Host "Downloading and installing from $url..." -ForegroundColor Yellow
+try {
+  Invoke-WebRequest -Uri $url -OutFile "$configDir\starship.toml" -UseBasicParsing
+  Write-Host "`e[1;32mInstallation complete! (Shell restart may be required)`e[0m"
+}
+catch {
+  Write-Host "`e[1;31mError downloading preset: $($_.Exception.Message)`e[0m"
+  Write-Host "`e[1;33mCheck your internet or repo URL.`e[0m"
+}
 
 if (-not (Get-Command starship -ErrorAction SilentlyContinue)) {
   Write-Host "`n`e[1;33mReminder: Install Starship to activate the preset!`e[0m"
