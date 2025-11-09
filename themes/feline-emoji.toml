@@ -4,6 +4,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 format = "\\[$directory$git_branch$git_status\\]$character"
 palette = 'vivid_sunset'
+add_newline = false
 
 [directory]
 truncation_symbol = "📁 "
