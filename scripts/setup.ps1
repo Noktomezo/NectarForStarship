@@ -1,6 +1,6 @@
 Clear-Host
 
-$BASE_URL = "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship"
+$BASE_URL = "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main"
 $CONFIG_DIR = "$HOME\.config"
 
 if (Get-Command starship -ErrorAction SilentlyContinue) {
