@@ -6,14 +6,16 @@
 
 ## 📦 Installation
 
-1. Run the following command in your terminal:
-```shell
-# For Windows
-iwr -useb "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/scripts/setup.ps1" | iex
-
-# For Linux and macOS
-bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/scripts/setup.sh")
+1. For Windows run this:
+```powershell
+iwr -useb "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main/scripts/setup.ps1" | iex
 ```
+
+2. For Linux and macOS run this:
+```bash
+bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship@main/scripts/setup.sh")
+```
+
 2. Run it and select a variant:
 - 1: Standard (Nerd Font) — `feline.toml`
 - 2: Emoji — `feline-emoji.toml`
