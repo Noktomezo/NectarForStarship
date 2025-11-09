@@ -18,7 +18,7 @@ Linux and macOS:
 bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/scripts/setup.sh")
 ```
 
-2. Run it and select a variant:
+2. Select a prompted variant:
 - 1: Standard (Nerd Font) — `feline.toml`
 - 2: Emoji — `feline-emoji.toml`
 - 3: Plain text — `feline-plain-text.toml`
