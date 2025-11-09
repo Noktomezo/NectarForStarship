@@ -57,7 +57,7 @@ while [ "$valid" = false ]; do
     esac
 done
 
-echo -e "\n\033[1;33mCopying $config_file to ~/.config/starship.toml...\033[0m"
+echo -e "\n\033[1;33mCopying $(basename "$config_file") to ~/.config/starship.toml...\033[0m"
 cp "$config_file" "$HOME/.config/starship.toml"
 echo -e "\033[1;32mInstallation complete! (Shell restart may be required)\033[0m"
 

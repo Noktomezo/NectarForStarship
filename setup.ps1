@@ -56,7 +56,7 @@ while (-not $valid) {
   }
 }
 
-Write-Host "`n`e[1;33mCopying $config_file to $HOME\.config\starship.toml...`e[0m"
+Write-Host "`n`e[1;33mCopying $((Get-Item $config_file).Name) to $HOME\.config\starship.toml...`e[0m"
 Copy-Item -Path $config_file -Destination "$HOME\.config\starship.toml" -Force
 Write-Host "`e[1;32mInstallation complete! (Shell restart may be required)`e[0m"
 
