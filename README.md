@@ -20,6 +20,9 @@ A clean, vivid prompt preset for Starship. Built with high-contrast palettes ins
 
 4. Reload shell (don't needed actually) to see the result.
 
+> [!TIP]
+> (For PowerShell users) Sometimes you may not needed all the previous prompt information, so you can replace the previous-printed prompt with just `$` symbol. For setup see [Starship docs](https://starship.rs/advanced-config/#transientprompt-in-powershell).
+
 ## Palettes
 
 Four schemes with consistent keys (e.g., `goldenspark` for branches, `lime_zest` for success). Define at the top of your config.
