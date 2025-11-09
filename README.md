@@ -13,10 +13,10 @@ A clean, vivid prompt preset for Starship. Built with high-contrast palettes ins
 
 2. Run the following command in your terminal:
 ```shell
-# For PowerShell
+# For Windows
 iwr -useb "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/setup.ps1" | iex
 
-# For Bash
+# For Linux and macOS
 bash <(curl -fsSL "https://cdn.jsdelivr.net/gh/Noktomezo/FelineForStarship/setup.sh")
 ```
 2. Run it and select a variant:
