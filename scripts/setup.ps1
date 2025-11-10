@@ -3,35 +3,42 @@ Clear-Host
 $BASE_URL = "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main"
 $CONFIG_DIR = "$HOME\.config"
 
+# Colors
+$RED = "$($PSStyle.Foreground.Red)$($PSStyle.Bold)"
+$GREEN = "$($PSStyle.Foreground.Green)$($PSStyle.Bold)"
+$YELLOW = "$($PSStyle.Foreground.Yellow)$($PSStyle.Bold)"
+$CYAN = "$($PSStyle.Foreground.Cyan)$($PSStyle.Bold)"
+$RESET = "$($PSStyle.Reset)"
+
 if (Get-Command starship -ErrorAction SilentlyContinue) {
-  Write-Host "`e[1;32mStarship is installed. Proceeding with preset installation.`e[0m"
+  Write-Host "$($GREEN)Starship is installed. Proceeding with preset installation.$($RESET)"
 }
 else {
-  Write-Host "`e[1;31mStarship is NOT installed.`e[0m"
-  Write-Host "`e[1;33mPlease install Starship first from https://starship.rs/ and add it to your PATH.`e[0m"
-  Write-Host "`e[1;33mInstallation will continue, but the preset won't take effect until Starship is installed.`e[0m"
+  Write-Host "$($RED)Starship is NOT installed.$($RESET)"
+  Write-Host "$($RED)Please install Starship first from https://starship.rs/ and add it to your PATH.$($RESET)"
+  Write-Host "$($RED)Installation will continue, but the preset won't take effect until Starship is installed.$($RESET)"
   Start-Sleep -Seconds 3
 }
 
 if (-not (Test-Path $CONFIG_DIR)) {
-  Write-Host "`e[1;31mStarship config directory does not exist`e[0m"
-  Write-Host "`e[1;33mCreating directory...`e[0m`n"
+  Write-Host "$($RED)Starship config directory does not exist.$($RESET)"
+  Write-Host "$($YELLOW)Creating directory...$($RESET)`n"
   New-Item -Path $CONFIG_DIR -ItemType Directory -Force | Out-Null
 }
 
 $valid = $false
 while (-not $valid) {
-  Write-Host "`n`e[1;34mSelect preset to install:`e[0m"
-  Write-Host "`e[1;32m[1]`e[0m `e[1;34mStandard preset (feline.toml; requires Nerd Font)`e[0m"
-  Write-Host "`e[1;32m[2]`e[0m `e[1;34mEmoji preset (feline-emoji.toml)`e[0m"
-  Write-Host "`e[1;32m[3]`e[0m `e[1;34mPlain text preset (feline-plain-text.toml)`e[0m"
-  $choice = Read-Host "`n`e[1;34mEnter your choice (1-3)`e[0m"
+  Write-Host "`n$($CYAN)Select preset to install:$($RESET)"
+  Write-Host "$($GREEN)[1]$($RESET) $($CYAN)Standard preset (feline.toml; requires Nerd Font)$($RESET)"
+  Write-Host "$($GREEN)[2]$($RESET) $($CYAN)Emoji preset (feline-emoji.toml)$($RESET)"
+  Write-Host "$($GREEN)[3]$($RESET) $($CYAN)Plain text preset (feline-plain-text.toml)$($RESET)"
+  $choice = Read-Host "`n$($CYAN)Enter your choice (1-3)$($RESET)"
 
   $choice = $choice.Trim()
 
   if ([string]::IsNullOrEmpty($choice)) {
     Clear-Host
-    Write-Host "`e[1;31mNo input provided. Please enter 1, 2, or 3.`e[0m"
+    Write-Host "$($RED)No input provided. Please enter 1, 2, or 3.$($RESET)"
     continue
   }
 
@@ -39,35 +46,35 @@ while (-not $valid) {
     "1" {
       $url = "$BASE_URL/themes/feline.toml"
       $valid = $true
-      Write-Host "`e[1;32mSelected `"Standard preset`"`e[0m"
+      Write-Host "$($GREEN)Selected `"Standard preset`"$($RESET)"
     }
     "2" {
       $url = "$BASE_URL/themes/feline-emoji.toml"
       $valid = $true
-      Write-Host "`e[1;32mSelected `"Emoji preset`"`e[0m"
+      Write-Host "$($GREEN)Selected `"Emoji preset`"$($RESET)"
     }
     "3" {
       $url = "$BASE_URL/themes/feline-plain-text.toml"
       $valid = $true
-      Write-Host "`e[1;32mSelected `"Plain text preset`"`e[0m"
+      Write-Host "$($GREEN)Selected `"Plain text preset`"$($RESET)"
     }
     default {
       Clear-Host
-      Write-Host "`e[1;31mInvalid choice '$choice'. Please enter 1, 2, or 3.`e[0m"
+      Write-Host "$($RED)Invalid choice '$choice'. Please enter 1, 2, or 3.$($RESET)"
     }
   }
 }
 
-Write-Host "Downloading and installing $([System.IO.Path]::GetFileName($url))..." -ForegroundColor Yellow
+Write-Host "$($YELLOW)Downloading and installing $([System.IO.Path]::GetFileName($url))...$($RESET)"
 try {
   Invoke-WebRequest -Uri $url -OutFile "$CONFIG_DIR\starship.toml" -UseBasicParsing
-  Write-Host "`e[1;32mInstallation complete! (Shell restart may be required)`e[0m"
+  Write-Host "$($GREEN)Installation complete! (Shell restart may be required)$($RESET)"
 }
 catch {
-  Write-Host "`e[1;31mError downloading preset: $($_.Exception.Message)`e[0m"
-  Write-Host "`e[1;33mCheck your internet or repo URL.`e[0m"
+  Write-Host "$($RED)Error downloading preset: $($_.Exception.Message)$($RESET)"
+  Write-Host "$($YELLOW)Check your internet or repo URL.$($RESET)"
 }
 
 if (-not (Get-Command starship -ErrorAction SilentlyContinue)) {
-  Write-Host "`n`e[1;33mReminder: Install Starship to activate the preset!`e[0m"
+  Write-Host "`n$($YELLOW)Reminder: Install Starship to activate the preset!$($RESET)`n"
 }
