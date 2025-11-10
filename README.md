@@ -8,10 +8,10 @@
 
 1. Run the following command in terminal:
 ```shell
-# For Windows
+# For Windows (PowerShell)
 iwr -useb "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/scripts/setup.ps1" | iex
 
-# For Linux and macOS
+# For Linux and macOS (Bash)
 bash <(curl -fsSL "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/scripts/setup.sh")
 ```
 
