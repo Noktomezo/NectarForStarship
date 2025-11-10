@@ -3,7 +3,6 @@ Clear-Host
 $BASE_URL = "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main"
 $CONFIG_DIR = "$HOME\.config"
 
-# Colors
 $RED = "$($PSStyle.Foreground.Red)$($PSStyle.Bold)"
 $GREEN = "$($PSStyle.Foreground.Green)$($PSStyle.Bold)"
 $YELLOW = "$($PSStyle.Foreground.Yellow)$($PSStyle.Bold)"
