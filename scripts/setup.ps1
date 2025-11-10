@@ -7,7 +7,7 @@ $CONFIG_DIR = "$HOME\.config"
 $RED = "$($PSStyle.Foreground.Red)$($PSStyle.Bold)"
 $GREEN = "$($PSStyle.Foreground.Green)$($PSStyle.Bold)"
 $YELLOW = "$($PSStyle.Foreground.Yellow)$($PSStyle.Bold)"
-$CYAN = "$($PSStyle.Foreground.Cyan)$($PSStyle.Bold)"
+$BOLD = "$($PSStyle.Bold)"
 $RESET = "$($PSStyle.Reset)"
 
 if (Get-Command starship -ErrorAction SilentlyContinue) {
@@ -28,11 +28,11 @@ if (-not (Test-Path $CONFIG_DIR)) {
 
 $valid = $false
 while (-not $valid) {
-  Write-Host "`n$($CYAN)Select preset to install:$($RESET)"
-  Write-Host "$($GREEN)[1]$($RESET) $($CYAN)Standard preset (feline.toml; requires Nerd Font)$($RESET)"
-  Write-Host "$($GREEN)[2]$($RESET) $($CYAN)Emoji preset (feline-emoji.toml)$($RESET)"
-  Write-Host "$($GREEN)[3]$($RESET) $($CYAN)Plain text preset (feline-plain-text.toml)$($RESET)"
-  $choice = Read-Host "`n$($CYAN)Enter your choice (1-3)$($RESET)"
+  Write-Host "`n$($BOLD)Select preset to install:$($RESET)"
+  Write-Host "$($GREEN)[1]$($RESET) $($BOLD)Standard preset ($($YELLOW)Requires Nerd Font$($RESET))$($RESET)"
+  Write-Host "$($GREEN)[2]$($RESET) $($BOLD)Emoji preset$($RESET)"
+  Write-Host "$($GREEN)[3]$($RESET) $($BOLD)Plain text preset$($RESET)"
+  $choice = Read-Host "`n$($BOLD)Enter your choice ($($GREEN)1-3$($RESET))"
 
   $choice = $choice.Trim()
 
@@ -65,7 +65,7 @@ while (-not $valid) {
   }
 }
 
-Write-Host "$($YELLOW)Downloading and installing $([System.IO.Path]::GetFileName($url))...$($RESET)"
+Write-Host "`n$($YELLOW)Downloading and installing $([System.IO.Path]::GetFileName($url))...$($RESET)"
 try {
   Invoke-WebRequest -Uri $url -OutFile "$CONFIG_DIR\starship.toml" -UseBasicParsing
   Write-Host "$($GREEN)Installation complete! (Shell restart may be required)$($RESET)"

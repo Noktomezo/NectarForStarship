@@ -5,18 +5,25 @@ clear
 BASE_URL="https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main"
 CONFIG_DIR="$HOME/.config"
 
+# Colors
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+BOLD="\033[1m"
+RESET="\033[0m"
+
 if command -v starship >/dev/null 2>&1; then
-    echo -e "\033[1;32mStarship is installed. Proceeding with preset installation.\033[0m"
+    echo -e "${GREEN}Starship is installed. Proceeding with preset installation.${RESET}"
 else
-    echo -e "\033[1;31mStarship is NOT installed.\033[0m"
-    echo -e "\033[1;33mPlease install Starship first from https://starship.rs/ and add it to your PATH.\033[0m"
-    echo -e "\033[1;33mInstallation will continue, but the preset won't take effect until Starship is installed.\033[0m"
+    echo -e "${RED}Starship is NOT installed.${RESET}"
+    echo -e "${RED}Please install Starship first from https://starship.rs/ and add it to your PATH.${RESET}"
+    echo -e "${RED}Installation will continue, but the preset won't take effect until Starship is installed.${RESET}"
     sleep 3
 fi
 
 if [ ! -d "$CONFIG_DIR" ]; then
-    echo -e "\033[1;31mStarship config directory does not exist\033[0m"
-    echo -e "\033[1;33mCreating directory...\033[0m"
+    echo -e "${YELLOW}Starship config directory does not exist${RESET}"
+    echo -e "${YELLOW}Creating directory...${RESET}"
     mkdir -p "$CONFIG_DIR"
 fi
 
@@ -26,18 +33,18 @@ THEMES_DIR="$SCRIPT_DIR/../themes"
 
 valid=false
 while [ "$valid" = false ]; do
-    echo -e "\n\033[1;34mSelect preset to install:\033[0m"
-    echo -e "[1] \033[1;34mStandard preset (feline.toml; requires Nerd Font)\033[0m"
-    echo -e "[2] \033[1;34mEmoji preset (feline-emoji.toml)\033[0m"
-    echo -e "[3] \033[1;34mPlain text preset (feline-plain-text.toml)\033[0m"
-    echo -ne "\n\033[1;34mEnter your choice (1-3): \033[0m"
+    echo -e "\n${BOLD}Select preset to install:${RESET}"
+    echo -e "${GREEN}[1]${RESET} ${BOLD}Standard preset (${YELLOW}Requires Nerd Font${RESET})${RESET}"
+    echo -e "${GREEN}[2]${RESET} ${BOLD}Emoji preset${RESET}"
+    echo -e "${GREEN}[3]${RESET} ${BOLD}Plain text preset${RESET}"
+    echo -ne "\n${BOLD}Enter your choice (${GREEN}1-3${RESET}): ${RESET}"
     read -r choice
     
     choice=$(echo "$choice" | xargs)
     
     if [ -z "$choice" ]; then
         clear
-        echo -e "\033[1;31mNo input provided. Please enter 1, 2, or 3.\033[0m"
+        echo -e "${RED}No input provided. Please enter 1, 2, or 3.${RESET}"
         continue
     fi
     
@@ -45,35 +52,35 @@ while [ "$valid" = false ]; do
         1)
             url="$BASE_URL/themes/feline.toml"
             valid=true
-            echo -e "\033[1;32mSelected \"Standard preset\"\033[0m"
+            echo -e "${GREEN}Selected \"Standard preset\"${RESET}"
         ;;
         2)
             url="$BASE_URL/themes/feline-emoji.toml"
             valid=true
-            echo -e "\033[1;32mSelected \"Emoji preset\"\033[0m"
+            echo -e "${GREEN}Selected \"Emoji preset\"${RESET}"
         ;;
         3)
             url="$BASE_URL/themes/feline-plain-text.toml"
             valid=true
-            echo -e "\033[1;32mSelected \"Plain text preset\"\033[0m"
+            echo -e "${GREEN}Selected \"Plain text preset\"${RESET}"
         ;;
         *)
             clear
-            echo -e "\033[1;31mInvalid choice '$choice'. Please enter 1, 2, or 3.\033[0m"
+            echo -e "${RED}Invalid choice '$choice'. Please enter 1, 2, or 3.${RESET}"
         ;;
     esac
 done
 
 {
     filename=$(basename "$url")
-    echo -e "\n\033[1;33mDownloading and installing from $filename...\033[0m"
+    echo -e "\n${YELLOW}Downloading and installing from $filename...${RESET}"
     curl -s -L "$url" -o "$CONFIG_DIR/starship.toml"
-    echo -e "\033[1;32mInstallation complete! (Shell restart may be required)\033[0m"
+    echo -e "\n${GREEN}Installation complete! (Shell restart may be required)${RESET}"
     } || {
-    echo -e "\n\033[1;31mError downloading preset: $($_.Exception.Message)\033[0m"
-    echo -e "\033[1;33mCheck your internet or repo URL.\033[0m"
+    echo -e "\n${RED}Error downloading preset: $($_.Exception.Message)${RESET}"
+    echo -e "\n${YELLOW}Check your internet or repo URL.${RESET}"
 }
 
 if ! command -v starship >/dev/null 2>&1; then
-    echo -e "\n\033[1;33mReminder: Install Starship to activate the preset!\033[0m"
+    echo -e "\n${YELLOW}Reminder: Install Starship to activate the preset!${RESET}"
 fi
