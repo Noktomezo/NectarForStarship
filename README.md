@@ -27,14 +27,11 @@ bash <(curl -fsSL "https://raw.githubusercontent.com/Noktomezo/FelineForStarship
 
 ## 🎨 Palettes
 
-To change palette, edit `palette` key in `~/.config/starship.toml`.
-
-| Palette       | Base Theme      |
-| ------------- | --------------- |
-| vivid_sunset  | Warm glow       |
-| electric_dawn | Neon burst      |
-| radiant_storm | Thunder energy  |
-| blaze_echo    | Fiery afterglow |
+To change palette, edit `palette` key in `~/.config/starship.toml` to one of the following:
+- `vivid_sunset`
+- `electric_dawn`
+- `radiant_storm`
+- `blaze_echo`
 
 ## 📝 Variants
 
