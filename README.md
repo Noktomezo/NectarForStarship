@@ -9,10 +9,10 @@
 1. Run the following command in terminal:
 ```shell
 # For Windows (PowerShell)
-iwr -useb "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/scripts/setup.ps1" | iex
+irm "https://dub.sh/feline" | iex
 
 # For Linux and macOS (Bash)
-bash <(curl -fsSL "https://raw.githubusercontent.com/Noktomezo/FelineForStarship/refs/heads/main/scripts/setup.sh")
+bash <(curl -fsSL "https://dub.sh/feline")
 ```
 
 2. Select a prompted variant:
