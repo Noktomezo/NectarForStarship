@@ -1,7 +1,7 @@
 <div align="center">
   <h3>🌠🙀 Feline For <a href="https://starship.rs/">Starship</a></h1>
   <p style="text-align: center;">A clean, vivid prompt preset for Starship. Built with high-contrast palettes inspired by <a href="https://github.com/catppuccin/starship">Catppuccin</a>, but more compact and vibrant. Provides three variants: Nerd Font icons, emojis, or plain text.</p>
-  <img src="./assets/thumbnail.svg" alt="Feline For Starship">
+  <img src="./assets/thumbnail-alt.svg" alt="Feline For Starship" width="400px">
 </div>
 
 ## 📦 Installation
