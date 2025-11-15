@@ -2,34 +2,41 @@
 # Works in any terminal without Nerd Fonts
 
 "$schema" = "https://starship.rs/config-schema.json"
-format = "\\[$directory$git_branch$git_status\\]$character"
+
+# Available palettes:
+# - electric_dawn
+# - radiant_storm
+# - blaze_echo
+# - vivid_sunset
 palette = "vivid_sunset"
+
+format = "\\[$directory$git_branch$git_status\\]$character"
 add_newline = false
 
 [directory]
-truncation_symbol = ".../"
+truncation_symbol = "…/"
 truncation_length = 1
 truncate_to_repo = true
 style = "fg:frostbite"
 format = "[$path]($style)"
 
 [git_branch]
-symbol = "git:"
+symbol = "⌥ "
 style = "fg:goldenspark"
 format = " | [[$symbol$branch](fg:goldenspark)]($style)"
 
 [git_status]
 format = "$all_status$ahead_behind"
-conflicted = " | [= $count](fg:indigo_vortex)"
-ahead = " | [>$count](fg:indigo_vortex)"
-behind = " | [<$count](fg:indigo_vortex)"
-diverged = " | [>$ahead_count / <$behind_count](fg:indigo_vortex)"
-untracked = " | [?$count](fg:indigo_vortex)"
-stashed = " | [*$count](fg:indigo_vortex)"
-modified = " | [~$count](fg:indigo_vortex)"
-staged = " | [+$count](fg:indigo_vortex)"
-renamed = " | [r$count](fg:indigo_vortex)"
-deleted = " | [x$count](fg:indigo_vortex)"
+conflicted = " | [↕ $count](fg:indigo_vortex)"
+ahead = " | [↑ $count](fg:indigo_vortex)"
+behind = " | [↓ $count](fg:indigo_vortex)"
+diverged = " | [↑ $ahead_count ↓ $behind_count](fg:indigo_vortex)"
+untracked = " | [∅ $count](fg:indigo_vortex)"
+stashed = " | [≡ $count](fg:indigo_vortex)"
+modified = " | [* $count](fg:indigo_vortex)"
+staged = " | [+ $count](fg:indigo_vortex)"
+renamed = " | [→ $count](fg:indigo_vortex)"
+deleted = " | [✗ $count](fg:indigo_vortex)"
 
 [character]
 disabled = false

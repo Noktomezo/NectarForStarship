@@ -2,8 +2,15 @@
 # Uses standard emojis instead of Nerd Fonts (works in most terminals)
 
 "$schema" = "https://starship.rs/config-schema.json"
-format = "\\[$directory$git_branch$git_status\\]$character"
+
+# Available palettes:
+# - electric_dawn
+# - radiant_storm
+# - blaze_echo
+# - vivid_sunset
 palette = "vivid_sunset"
+
+format = "\\[$directory$git_branch$git_status\\]$character"
 add_newline = false
 
 [directory]
