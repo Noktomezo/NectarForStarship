@@ -1,7 +1,8 @@
 <div align="center">
+  <img src="./assets/thumbnail-alt-2.svg" alt="Nectar For Starship" width="100%">
+  <br>
   <h3>🍯✨🚀 Nectar For <a href="https://starship.rs/">Starship</a></h1>
   <p style="text-align: center;">A clean, vivid prompt preset for Starship, rethinking the classic Linux default terminal prompt - but extended for modern workflows. It delivers high-contrast readability in a compact, vibrant layout, showing all the project info in comprehensive format. Provides three (project affection indicator) variants: Nerd Font icons, emojis, or plain text.</p>
-  <img src="./assets/thumbnail-alt.svg" alt="Nectar For Starship" width="400px">
 </div>
 
 ## 📦 Installation
