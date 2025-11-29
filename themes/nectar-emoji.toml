@@ -15,7 +15,7 @@ add_newline = false
 
 [directory]
 truncation_symbol = "📁 "
-truncation_length = 1
+truncation_length = 2
 truncate_to_repo = true
 style = "fg:frost"
 format = "[$path]($style)"
