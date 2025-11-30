@@ -36,7 +36,7 @@ To change palette, edit `palette` key in `~/.config/starship.toml` to one of the
 
 <ul>
   <li>
-  <strong>Standard</strong>: Nerd Font icons (e.g., <img src="./assets/staged.svg" alt="staged" max-height="16px" max-width="16px" vertical-align="-0.125em"> for staged, <img src="./assets/modified.svg" alt="modified" max-height="16px" max-width="16px" vertical-align="-0.125em"> for modified, <img src="./assets/ahead.svg" alt="ahead" max-height="16px" max-width="16px" vertical-align="-0.125em"> for ahead).
+  <strong>Standard</strong>: Nerd Font icons (e.g., <img src="./assets/staged.png" alt="staged" max-height="1em" vertical-align="-0.125em"> for staged, <img src="./assets/modified.png" alt="modified" max-height="1em" vertical-align="-0.125em"> for modified, <img src="./assets/ahead.png" alt="ahead" max-height="1em" vertical-align="-0.125em"> for ahead).
   </li>
   <li>
   <strong>Plain text</strong>: ASCII/Unicode (e.g., + for staged, * for modified, ↑ for ahead).
