@@ -1,6 +1,6 @@
 <div align="center">
   <img src="./assets/thumbnail.svg" alt="Crampack For Starship" width="100%">
-  <h3>🎒Crampack For <a href="https://starship.rs/">Starship 🚀</a></h1>
+  <h3>🎒 Crampack For <a href="https://starship.rs/">Starship 🚀</a></h1>
   <p style="text-align: center;">A clean, vivid prompt preset for Starship, rethinking the classic Linux default terminal prompt - but extended for modern workflows. It delivers high-contrast readability in a compact, vibrant layout, showing all the project info in comprehensive format. Provides two (project affection indicator) variants: Nerd Font icons or plain text.</p>
 </div>
 
